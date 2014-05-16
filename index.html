@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>agrc.widgets by agrc</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/agrc/agrc.widgets">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/agrc/agrc.widgets/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/agrc/agrc.widgets/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>agrc.widgets</h1>
+          <p>agrc&#39;s dojo widgets library</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/agrc">agrc</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p><a href="https://travis-ci.org/agrc/agrc.widgets"><img src="https://travis-ci.org/agrc/agrc.widgets.svg?branch=master" alt="Build Status"></a></p>
+
+<h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h3>
+
+<ol>
+<li>Clone the repo</li>
+<li><code>npm install &amp;&amp; bower install &amp;&amp; grunt</code></li>
+</ol><p>You can use our widgets just like any other <a href="http://dojotoolkit.org/reference-guide/dijit/info.html#dijit-info">Dojo widget</a>. Just be sure to set your <a href="http://dojotoolkit.org/documentation/tutorials/1.9/cdn/">packages loader config</a> property so that Dojo knows where to look.</p>
+
+<h3>
+<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">require</span><span class="p">({</span>
+  <span class="nx">packages</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">'agrc'</span><span class="p">,</span>
+    <span class="nx">location</span><span class="o">:</span> <span class="s1">'../agrc.widgets'</span>
+  <span class="p">}]</span>
+<span class="p">},</span> <span class="p">[</span>
+  <span class="s1">'esri/map'</span><span class="p">,</span>
+  <span class="s1">'esri/layers/ArcGISTiledMapServiceLayer'</span><span class="p">,</span>
+
+  <span class="s1">'agrc/widgets/locate/FindAddress'</span>
+<span class="p">],</span> <span class="kd">function</span> <span class="p">(</span>
+<span class="nx">Map</span><span class="p">,</span> 
+<span class="nx">Tiled</span><span class="p">,</span>
+
+<span class="nx">FindAddress</span>
+<span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">serviceUrl</span> <span class="o">=</span> <span class="s1">'http://mapserv.utah.gov/arcgis/rest/services/BaseMaps/Terrain/MapServer'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(</span><span class="s1">'map-div'</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">tiledService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tiled</span><span class="p">(</span><span class="nx">serviceUrl</span><span class="p">);</span>
+
+  <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">tiledService</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">findAddress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FindAddress</span><span class="p">({</span>
+    <span class="nx">map</span><span class="o">:</span> <span class="nx">map</span><span class="p">,</span>
+    <span class="nx">apiKey</span><span class="o">:</span> <span class="s1">'get your key at http://developer.mapserv.utah.gov'</span>
+  <span class="p">},</span> <span class="s1">'find-address'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="browser-compatibility" class="anchor" href="#browser-compatibility"><span class="octicon octicon-link"></span></a>Browser Compatibility</h3>
+
+<p>We support <a href="https://developers.arcgis.com/en/javascript/jshelp/supported_browsers.html">the same browsers</a> that ESRI's API does.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
